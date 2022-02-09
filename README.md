@@ -1,6 +1,6 @@
 # Votacion de autoridades
 
-> Una plataforma diseñada por Democracia en Red, The Konrad Adenauer Foundation y la MOE
+> Una plataforma diseñada por Democracia en Red (ARG), The Konrad Adenauer Foundation (COL) & Misión de Observación Electoral (COL)
 
 Plataforma digital para la votación de autoridades en elecciones de democracia cotidiana, segura e integrada con la votación física.
 
