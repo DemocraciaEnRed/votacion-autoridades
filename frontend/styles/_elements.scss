@@ -1,0 +1,147 @@
+//! Overrides ***************************************************
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+.title {
+  font-weight: $weight-medium;
+}
+.subtitle {
+  font-weight: $weight-normal;
+}
+.button {
+  font-weight: $weight-medium;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  &.is-ghost {
+    box-shadow: none !important;
+  }
+}
+
+//# Box
+.box {
+  &.is-small {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: $width-s;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    .box-inner {
+      max-width: $width-s * 0.6;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include from($mobile) {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+  &.is-medium {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: $width-l;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    .box-inner {
+      width: $width-l * 0.9;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include from($mobile) {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+}
+.gradient-box {
+  @extend .box;
+  padding: 0;
+  overflow: hidden;
+  &-left,
+  &-right {
+    padding: 3rem 2rem;
+  }
+  &-left {
+    background: linear-gradient(90deg, $primary, $info);
+    &-inner {
+      background-color: $white;
+      padding: 3rem;
+      max-width: 49rem;
+      border-radius: $radius-large;
+      margin: auto;
+    }
+  }
+  &-right {
+    background-color: $primary-light;
+  }
+}
+
+.image {
+  &.is-centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+//! Custom ******************************************************
+.link {
+  text-decoration: underline;
+  font-weight: 500;
+}
+.list {
+  &-item {
+    line-height: 1.3;
+    + .list-item {
+      margin-top: 1rem;
+    }
+  }
+}
+.hr-small {
+  border: none;
+  border-bottom: 1px solid $grey-light;
+  display: block;
+  max-width: 80%;
+  margin: 2rem auto;
+}
+.hr-title {
+  border: none;
+  background: none;
+  height: 0;
+  border-bottom: 1px solid $text;
+  margin: 2rem auto 3rem;
+  max-width: $width-l;
+  &.is-primary {
+    border-color: $primary;
+  }
+  &.is-white {
+    border-color: $white;
+  }
+}
+.icon-wrapper {
+  width: 5rem;
+  height: 5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid $primary;
+}
+.step-bullet {
+  font-size: 2rem;
+  color: $white;
+  font-weight: $weight-medium;
+  width: 3rem;
+  height: 3rem;
+  background-color: $info;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-rounded;
+}

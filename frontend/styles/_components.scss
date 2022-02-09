@@ -1,0 +1,281 @@
+//! Overrides ***************************************************
+.navbar {
+  background: none;
+  &-brand {
+    align-items: center;
+    margin-left: -0.75rem;
+    //# Logos
+    .navbar-item {
+      @include until($mobile) {
+        flex: auto;
+      }
+      img {
+        max-height: unset;
+      }
+    }
+    //# Burger
+    .navbar-burger {
+      margin-right: -0.75rem;
+      background: none !important;
+      flex-shrink: 0;
+    }
+  }
+  // Navbar line separator
+  // &-start {
+  //   @include desktop {
+  //     position: relative;
+  //     margin-left: 0.2rem;
+  //     padding-left: 0.5rem;
+  //     &::before {
+  //       content: '';
+  //       position: absolute;
+  //       left: 0;
+  //       top: 0;
+  //       bottom: 0;
+  //       border-left: 1px solid $grey-light;
+  //       height: 2.5rem;
+  //       margin: auto;
+  //     }
+  //   }
+  // }
+  &-end {
+    align-items: center;
+  }
+  &-item,
+  &-link {
+    font-weight: $weight-medium;
+    &:hover,
+    &:focus,
+    &.router-link-active {
+      color: $primary-alt !important;
+    }
+  }
+  &-dropdown {
+    border-top: 0;
+    border-radius: $radius;
+    min-width: unset;
+    left: unset;
+    right: 0;
+    a.navbar-item {
+      padding: 0.375rem 1rem;
+      justify-content: flex-end;
+    }
+  }
+}
+
+//# Tooltip
+.has-tooltip {
+  position: relative;
+  .b-tooltip {
+    position: absolute;
+    top: 0;
+    right: -2rem;
+    .tooltip-content {
+      @extend .content;
+      padding: 1.2rem !important;
+      box-shadow: none;
+      border: 1px solid $primary;
+      right: calc(100% + 14px);
+      max-width: 50rem;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translateY(-50%);
+        z-index: -1;
+        pointer-events: none;
+        // |>
+        border-top: 7px solid transparent;
+        border-right: 7px solid #181c8b;
+        border-bottom: 7px solid transparent;
+      }
+      * {
+        color: $primary;
+        text-align: left;
+        font-size: $size-6;
+      }
+      strong {
+        font-weight: $weight-bold;
+      }
+      @include until($desktop) {
+        position: fixed !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        box-shadow: 0px 0px 0px 100vh rgb(0 0 0 / 85%) !important;
+        &::before,
+        &::after {
+          display: none;
+        }
+        * {
+          text-align: center;
+        }
+      }
+    }
+    .tooltip-trigger {
+      cursor: help;
+      font-size: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary;
+      color: $white;
+      font-size: 0.8rem;
+      border-radius: $radius-rounded;
+    }
+  }
+  &.is-small .b-tooltip {
+    right: -1.75rem;
+    .tooltip-trigger {
+      font-size: 0.7rem;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+//# Modal
+.modal {
+  max-height: 100vh;
+  padding: 1.25rem;
+  .animation-content {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    // Close Externo
+    > .modal-close {
+      display: none;
+    }
+  }
+  &-inner {
+    height: 100%;
+    position: relative;
+    .delete {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 1;
+    }
+    .box {
+      max-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: relative;
+      padding-top: 4rem;
+      padding-bottom: 3rem;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Apexcharts
+.apexcharts {
+  &-tooltip {
+    padding: 3px 6px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid #e3e3e3 !important;
+    border-radius: 5px !important;
+    box-shadow: 2px 2px 6px -4px #999 !important;
+    &-series-group {
+      padding: 0 !important;
+      background: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+    &-text {
+      font-size: 12px !important;
+      color: $text !important;
+    }
+  }
+}
+.pie-chart {
+  .apexcharts {
+    &-legend-series {
+      cursor: default !important;
+    }
+    &-datalabels {
+      opacity: 1 !important;
+    }
+  }
+}
+
+//! Custom ******************************************************
+.candidates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-item {
+    + .candidates-item {
+      margin-left: -0.75rem;
+    }
+    img {
+      border: 2px solid $white;
+    }
+  }
+  &-plus {
+    margin-left: 0.25rem;
+  }
+}
+
+.candidate {
+  .plate-name {
+    position: relative;
+    padding-left: 14px;
+    font-size: 12px;
+    height: 10px;
+    line-height: 1;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 10px;
+      width: 10px;
+      border-radius: 999px;
+      background-color: var(--bullet-color);
+    }
+  }
+}
+
+.iframe-wrapper {
+  padding-bottom: 56.25%;
+  position: relative;
+  background-color: $grey-lighter;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.radial-progress {
+  &-container {
+    margin-bottom: 0 !important;
+    margin-right: 1rem !important;
+  }
+  &-bar {
+    position: relative;
+    z-index: 1000;
+  }
+  &-data {
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: $weight-bold;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    &-completed {
+      font-size: 16px;
+    }
+  }
+}

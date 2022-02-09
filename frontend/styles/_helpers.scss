@@ -1,0 +1,148 @@
+//# Colors
+@mixin create-custom-colors($name, $color) {
+  .has-text-#{$name} {
+    * {
+      color: inherit;
+    }
+  }
+  .has-border-#{$name} {
+    border: 1px solid list.nth($color, 1);
+  }
+  .has-border-y-#{$name} {
+    border-top: 1px solid list.nth($color, 1);
+    border-bottom: 1px solid list.nth($color, 1);
+  }
+  .has-border-x-#{$name} {
+    border-left: 1px solid list.nth($color, 1);
+    border-right: 1px solid list.nth($color, 1);
+  }
+  .has-border-t-#{$name} {
+    border-top: 1px solid list.nth($color, 1);
+  }
+  .has-border-r-#{$name} {
+    border-right: 1px solid list.nth($color, 1);
+  }
+  .has-border-l-#{$name} {
+    border-left: 1px solid list.nth($color, 1);
+  }
+  .has-border-b-#{$name} {
+    border-bottom: 1px solid list.nth($color, 1);
+  }
+}
+@each $name, $color in $colors {
+  @include create-custom-colors($name, $color);
+}
+@each $name, $shade in $shades {
+  @include create-custom-colors($name, $shade);
+}
+
+//# Borders
+$borders: (
+  '1': 1px,
+  '2': 2px,
+  '3': 3px,
+  '4': 4px,
+  '5': 5px,
+  '6': 6px,
+);
+@each $name, $border in $borders {
+  .has-border-width-#{$name} {
+    border-width: $border;
+  }
+}
+.has-radius-large {
+  border-radius: $radius-large;
+}
+//# Typography
+// is-size-1:	3rem
+// is-size-2:	2.5rem
+// is-size-3:	2rem
+// is-size-4:	1.5rem
+// is-size-5:	1.25rem
+.is-size-55 {
+  font-size: 1.125rem;
+}
+// is-size-6:	1rem
+.is-size-65 {
+  font-size: 0.9rem;
+}
+// is-size-7:	0.75rem
+//# Spacing
+.m-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+@mixin create-custom-spacing($breakpoint) {
+  .m-auto-#{$breakpoint} {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  @each $rule, $shortcut in $spacing-shortcuts {
+    @each $key, $value in $spacing-values {
+      .#{$shortcut}-#{$key}-#{$breakpoint} {
+        #{$rule}: $value !important;
+      }
+      .#{$shortcut}y-#{$key}-#{$breakpoint} {
+        #{$rule}-top: $value !important;
+        #{$rule}-bottom: $value !important;
+      }
+      .#{$shortcut}x-#{$key}-#{$breakpoint} {
+        #{$rule}-left: $value !important;
+        #{$rule}-right: $value !important;
+      }
+      .#{$shortcut}t-#{$key}-#{$breakpoint} {
+        #{$rule}-top: $value !important;
+      }
+      .#{$shortcut}r-#{$key}-#{$breakpoint} {
+        #{$rule}-right: $value !important;
+      }
+      .#{$shortcut}b-#{$key}-#{$breakpoint} {
+        #{$rule}-bottom: $value !important;
+      }
+      .#{$shortcut}l-#{$key}-#{$breakpoint} {
+        #{$rule}-left: $value !important;
+      }
+    }
+  }
+}
+@include touch {
+  @include create-custom-spacing('touch');
+}
+@include tablet {
+  @include create-custom-spacing('tablet');
+}
+.is-nowrap {
+  white-space: nowrap;
+}
+//# Visibility
+.is-visible-mobile {
+  @include from($mobile) {
+    display: none !important;
+  }
+}
+.is-hidden-mobile {
+  display: initial !important;
+  @include until($mobile) {
+    display: none !important;
+  }
+}
+//# Position
+.is-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  &.sticked {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+//# Display
+.is-justify-content-start-tablet {
+  @include tablet {
+    justify-content: flex-start !important;
+  }
+}
+//# Morfology
+.is-fullheight {
+  height: 100% !important;
+}

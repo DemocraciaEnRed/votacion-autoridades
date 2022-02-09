@@ -1,0 +1,104 @@
+//! Overrides ***************************************************
+
+.section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+.level {
+  &.is-timer {
+    max-width: $width-s;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $white;
+    border: 1px solid $grey-light;
+    border-radius: $radius;
+    height: 6rem;
+    margin-bottom: -3rem;
+    &.is-small {
+      margin-bottom: 0;
+      max-width: $width-xs;
+      height: 4rem;
+    }
+    .level-item {
+      height: 100%;
+      flex-direction: column;
+      margin: 0 !important;
+      + .level-item {
+        border-left: 1px solid $grey-light;
+      }
+    }
+  }
+  &.is-results {
+    max-width: $width-m;
+    margin-left: auto;
+    margin-right: auto;
+    .level-item {
+      height: 100%;
+      flex-direction: column;
+      margin: 0 !important;
+    }
+  }
+  .value {
+    font-size: $size-2;
+    font-weight: $weight-semibold;
+    line-height: 1.1;
+    &.is-small {
+      font-size: $size-4;
+      line-height: 1;
+    }
+  }
+  .label {
+    font-weight: $weight-semibold;
+    &.is-large {
+      font-size: $size-4;
+      font-weight: $weight-normal;
+      line-height: 1;
+    }
+  }
+}
+.media {
+  &-content {
+    overflow: visible;
+  }
+}
+
+//! Custom ******************************************************
+
+.section.is-navigation {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  @include until($mobile) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    .box {
+      border-radius: 0 !important;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+    }
+  }
+}
+
+//# Responsive
+@include until($mobile) {
+  :root {
+    font-size: 85%;
+  }
+}
+
+//# App
+#app {
+  background-color: $primary-light;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  main {
+    flex: 1;
+  }
+}
+
+//# Break
+.break-2 {
+  @include tablet {
+    columns: 2;
+  }
+}
