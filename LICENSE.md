@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2022 Democracia en Red
+Copyright (c) 2022 Democracia en Red (ARG), The Konrad Adenauer Foundation (GER) & Misión de Observación Electoral (COL)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
