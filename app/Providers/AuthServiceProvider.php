@@ -31,7 +31,16 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         // GATES FOR PERMISSIONS
-        $permissions = Permission::all();
+
+        // if the table Permission is not created yet, we will get an exception
+        // so we need to catch it and return an empty array
+        try {
+            $permissions = Permission::all();
+        }
+        catch (\Exception $e) {
+            $permissions = [];
+        }
+
         foreach($permissions as $permission) {
 
             Gate::define($permission->name, function ($user = null) use ($permission) {
