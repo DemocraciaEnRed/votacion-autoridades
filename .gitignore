@@ -5,9 +5,9 @@
 /.idea
 /docs
 /node_modules
-/public/css
+#/public/css
 /public/hot
-/public/js
+#/public/js
 /public/mix-manifest.json
 /public/storage
 /storage/*.key
